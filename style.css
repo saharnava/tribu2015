@@ -10,13 +10,86 @@
  * License:     GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
+ 
+/**
+ * TABLE DES MATIERES
+ * --------------------------------------------------------------------------- */
+ 
+/**
+
+	I. Fonts
+	II. Defaults
+		1. HTML
+		2. Body
+		3. Links
+		4. Headers
+		5. Blockquotes, quotes, and cites
+		6. Lists
+		7. Embeds
+		8. Forms
+		9. Alignement (WP classes)
+		10. Caractères
+	III. Images
+		1. WP editor image sizes
+		2. Thumbnails
+		3. Captions
+	IV. Layout
+	V. Header
+		1. Search Bar
+		2. Bandeau Identité
+	VI. Menus
+		1. Mobile
+		2. Primary Menu
+		3. Secondary Menu
+	VII. Content
+		1. Breadcrumbs
+		2. Parallax
+		3. Homepage
+			a. Bannière
+			b. Contenu
+			c. Derniers articles
+			d. Strate réseaux sociaux
+		4. Catégories
+		5. Search
+		6. Articles
+			a. Entête
+			b. Auteur
+			c. Contenu & extrait
+			d. Liste de produits
+			e. Contenu en relation
+			f. Pied de l'article
+		7. 404
+	VIII. Pagination
+		1. Pages de type archive
+	IX. Commentaires
+	X. Pied de page du site
+		1. Strate équipe
+		2. Strate Nature & Découvertes
+			a. Newsletter
+		3. Mentions légales
+	XI. Media Queries
+		1. Au-dessus de 1440px
+		2. Entre 1280px et 1440px
+		3. Entre 1152px et 1280px
+		4. Entre 960px et 1152px
+		5. Au-dessus de 960px
+		6. Au-dessus de 800px
+		7. Au-dessus de 768px
+		8. Au-dessus de 600px
+		9. Au-dessus de 568px
+		10. Au-dessus de 480px
+	XII. Clearing Floats
+		
+**/
+
 
 /**
- * Fonts - Declare @font-face here.
+ * I. Fonts - Declare @font-face here.
  * --------------------------------------------------------------------------- */
 
+
 /**
- * Defaults
+ * II. Defaults
  * --------------------------------------------------------------------------- */
 
 * {
@@ -25,11 +98,11 @@
             box-sizing: border-box;
 }
 
-/* === HTML === */
+/* === I.1. HTML === */
 
 html {font-size: 62.5%;}
 
-/* === Body === */
+/* === I.2. Body === */
 
 body {
 	font-size: 1.5rem;
@@ -45,13 +118,13 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* === Links === */
+/* === I.3. Links === */
 
 a {color: #d63625;}
 
 	a:hover {text-decoration: underline;}
 
-/* === Headers === */
+/* === I.4. Headers === */
 
 h1, h2, h3, h4, h5, h6{
 	margin: 3em 0 1.2em 0;
@@ -68,7 +141,7 @@ h3 {
 	font-size: 1em;
 }
 
-/* === Blockquotes, quotes, and cites === */
+/* === I.5. Blockquotes, quotes, and cites === */
 
 blockquote {}
 
@@ -76,12 +149,12 @@ blockquote {}
 
 	blockquote cite {}
 
-/* === Lists === */
+/* === I.6. Lists === */
 
 	ul li,
 	ol li {list-style-position: inside;}
 
-/* === Embeds === */
+/* === I.7. Embeds === */
 
 object {}
 
@@ -91,9 +164,7 @@ iframe {}
 
 video {}
 
-/* === Forms === */
-
-/*form {}*/
+/* === I.8. Forms === */
 
 	input {
 		border-radius: 0;
@@ -163,7 +234,7 @@ video {}
 		color: #d63625;
 	}
 
-/* === Alignement (WP classes) === */
+/* === I.9. Alignement (WP classes) === */
 
 .aligncenter, .alignright, .alignleft{
 	max-width: 100%;
@@ -177,14 +248,14 @@ video {}
 	margin: 1.5rem 0 2rem 2rem;
 }
 
-/* === Caractères === */
+/* === I.10. Caractères === */
 
 strong{font-weight: 700;}
 em{font-style: italic;}
 
 
 /**
- * Images
+ * III. Images
  * --------------------------------------------------------------------------- */
 
 article > img {
@@ -192,7 +263,7 @@ article > img {
 }
 img.emoji, img.wp-smiley{border: none !important;}
 
-/* === WP editor image sizes === */
+/* === III.1. WP editor image sizes === */
 
 img.size-large,
 img.large {
@@ -200,7 +271,7 @@ img.large {
 	height: auto;
 }
 
-/* === Thumbnails === */
+/* === III.2. Thumbnails === */
 
 .singular .entry-header .thumbnail {
 	margin-bottom: -10px;
@@ -215,7 +286,7 @@ img.large {
     border: 1px solid #DBDBDB;
 }
 
-/* === Captions === */
+/* === III.3. Captions === */
 
 	.wp-caption-text {
 		font-style: italic;
@@ -225,7 +296,7 @@ img.large {
 
 
 /**
- * Layout
+ * IV. Layout
  * --------------------------------------------------------------------------- */
 
 	#container {
@@ -242,7 +313,7 @@ img.large {
 			}
 
 /**
- * Header
+ * V. Header
  * --------------------------------------------------------------------------- */
 
 #header {
@@ -251,7 +322,7 @@ img.large {
 	z-index: 999;
 }
 
-/* ====== Search Bar ====== */
+/* === V.1. Search Bar === */
 
 	#search-bar{
 		height: 60px;
@@ -291,7 +362,7 @@ img.large {
 				transition: 0.5s ease;
 			}    
 
-/* ====== Bandeau Identité ====== */
+/* === V.2. Bandeau Identité === */
 
 	#header .top{
 		width: 100%;
@@ -368,10 +439,10 @@ img.large {
 					
 
 /**
- * Menus
+ * VU. Menus
  * --------------------------------------------------------------------------- */
 
-/* ===== Mobile ===== */
+/* === VI.1. Mobile === */
 
 .menu-toggle {
 	display: block;
@@ -478,7 +549,7 @@ img.large {
 			background-image: url(images/bt-pinterest.png);
 		}
 
-/* ====== Primary Menu ====== */
+/* === VI.2. Primary Menu === */
 
 #menu-primary{display: none !important;}
 
@@ -506,7 +577,7 @@ img.large {
 				color: #959595 !important;
 			}
 
-/* ====== Secondary Menu ====== */
+/* === VI.3. Secondary Menu === */
 
 #secondary-nav{
 	float: right;
@@ -544,11 +615,12 @@ img.large {
 				background: transparent url(images/bt-search.png) center center no-repeat;
 			}
 
+
 /**
- * Content
+ * VII. Content
  * --------------------------------------------------------------------------- */
 
-/* ====== BREADCRUMBS ====== */
+/* === VII.1. Breadcrumbs === */
 
 #breadcrumbs{
 	padding: 0 10px;
@@ -557,7 +629,7 @@ img.large {
 		font-weight: 400 !important;
 	}
 
-/* ====== PARALLAX ====== */
+/* === VII.2. Parallax === */
 
 .hasBackground{
 	background-repeat: no-repeat;
@@ -597,11 +669,9 @@ img.large {
 	width: 50%;
 }
 
+/* === VII.3. Homepage === */
 
-
-/* ====== HOMEPAGE ====== */
-
-	/* === BANNER === */
+/* VII.3.a. Bannière */
 
 .home-social{}
 
@@ -651,13 +721,13 @@ img.large {
 
 @keyframes bounce{ from {transform: translateY(0);} to {transform: translateY(-20px);} }
 
-	/* === CONTENT === */
+/* VII.3.b. Contenu */
 	
 .home-content{
 	padding: 0 10px 20px;
 }
 
-	/* === DERNIERS ARTICLES === */
+/* VII.3.c. Derniers articles */
 
 #last-posts h2 span{
 		    background-image: url(images/p-titre1.png);
@@ -705,7 +775,7 @@ img.large {
 		padding: 20px 0 0;
 	}
 
-	/* === STRATES RESEAUX SOCIAUX === */
+/* VII.3.d. Strate réseaux sociaux */
 
 .home .banner-content{
 	width: 100%;
@@ -719,75 +789,81 @@ img.large {
 		margin-bottom: 10px;
 	}
 
-/* Facebook */
+	/* Facebook */
 
-.home #facebook{
-	background-color: #f9f5ef;
-}
-
-.home #facebook h2 span {
-    background-image: url(images/p-facebook.png);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 40px;
-}
-	#facebook .entry{
-		width: 100%;
-		padding: 0 10px;
+	.home #facebook{
+		background-color: #f9f5ef;
 	}
-	#facebook .entry-header{
-		background-color: transparent;
-		height: 260px;
-		overflow: hidden;
-		text-align: center;
-		margin-bottom: 0;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
+	
+	.home #facebook h2 span {
+	    background-image: url(images/p-facebook.png);
+	    background-size: 30px 30px;
+	    background-repeat: no-repeat;
+	    background-position: left center;
+	    padding-left: 40px;
 	}
-	.fb-img {
-		background-color: transparent;
-		width: 100%;
-		height: auto;
-		opacity: 0;
-	}
+		#facebook .entry{
+			width: 100%;
+			padding: 0 10px;
+		}
+		#facebook .entry-header{
+			background-color: transparent;
+			height: 260px;
+			overflow: hidden;
+			text-align: center;
+			margin-bottom: 0;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.fb-img {
+			background-color: transparent;
+			width: 100%;
+			height: auto;
+			opacity: 0;
+		}
+	
+		/* Instagram */
+		
+		.home #instagram{
+			background-color: #FFFFFF;
+		}
+		
+		.home #instagram h2 span {
+		    background-image: url(images/p-instagram.png);
+		    background-size: 30px 30px;
+		    background-repeat: no-repeat;
+		    background-position: left center;
+		    padding-left: 40px;
+		}
+		
+		ul.instagram-pics {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		
+		.instagram-pics li {
+			line-height: 0;
+			margin-bottom: 2rem;
+			text-align: center;
+			width: 100%;
+		}
+		
+		.instagram-pics li img {
+			width: 100%;
+		}
 
-/* Instagram */
 
-.home #instagram{
-	background-color: #FFFFFF;
-}
+/* === VII.4. Catégories === */
 
-.home #instagram h2 span {
-    background-image: url(images/p-instagram.png);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 40px;
-}
-
-ul.instagram-pics {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-}
-
-.instagram-pics li {
-	line-height: 0;
-	margin-bottom: 2rem;
-	text-align: center;
+.loop-category{
+	max-width: 1400px;
+	padding: 20px 10px 0 10px;
+	margin: 0 auto;
 	width: 100%;
 }
-
-.instagram-pics li img {
-	width: 100%;
-}
-
-
- 
-/* ===== CATEGORIES ====== */
 
 .taxonomy-category .archive-header{
     overflow: hidden;
@@ -827,7 +903,7 @@ ul.instagram-pics {
 }
 
 
-/* ====== SEARCH ====== */
+/* === VII.5. Search === */
 
 .search .archive-header{
 	padding: 0 10px;
@@ -856,14 +932,14 @@ ul.instagram-pics {
 		margin: 0 auto;
 	}
 
-/* ====== POSTS ====== */
+/* === VII.6. Articles === */
 
 .plural .entry,
 .singular-auteur .entry{
 	padding-bottom: 30px;
 }
 
-	/* === Post Header === */
+/* VII.6.a. Entête */
 
 .plural .entry-title,
 .singular-auteur .entry-title{
@@ -1002,8 +1078,7 @@ ul.instagram-pics {
 						padding: 0 2px 0 0 !important;
 					}
 
-
-	/* === Auteur === */
+/* VII.6.b. Auteur */
 
 .singular-auteur .content .auteur-fiche {
 	padding: 0 10px;
@@ -1048,7 +1123,7 @@ ul.instagram-pics {
 			margin: 0 5px;
 		}
 
-	/* === Post content and excerpts === */
+/* VII.6.c. Contenu & extrait */
 
 	.entry-content {
 		max-width: 1400px;
@@ -1133,7 +1208,7 @@ ul.instagram-pics {
 				opacity: 1;
 			}
 
-	/* === Liste de produits === */
+/* VII.6.d. Liste de produits */
 	
 .produits-titre {
 	text-align: center;
@@ -1185,7 +1260,7 @@ ul.instagram-pics {
 		.produit_titre{text-transform: uppercase;}
 		.produit_prix{color:#d63625;}
 
-	/* === Post related === */
+/* VII.6.e. Contenu en relation */
 	
 	.yarpp-related,
 	.cat-related{
@@ -1226,7 +1301,7 @@ ul.instagram-pics {
 				font-weight: 400;
 			}
 	
-	/* === Post Footer === */
+/* VII.6.f. Pied de l'article */
 
 	.entry-footer {
 		max-width: 1400px;
@@ -1236,7 +1311,7 @@ ul.instagram-pics {
 	}
 
 
-/* ====== 404 ====== */
+/* === VII.7. 404 === */
 
 .error-404 h1.entry-title{
 	font-size: 2.8em;
@@ -1257,19 +1332,12 @@ ul.instagram-pics {
 	text-align: center;
 }
 
-/* ====== LOOP META ====== */
 
-	.loop-category{
-		max-width: 1400px;
-		padding: 20px 10px 0 10px;
-		margin: 0 auto;
-		width: 100%;
-	}
+/**
+ * VIII. Pagination
+ * --------------------------------------------------------------------------- */
 
-
-/* ====== PAGINATION ====== */
-
-/* === Archive-type pages === */
+/* === VIII.1. Pages de type archive === */
 
 .pagination{
 	width: 100%;
@@ -1291,8 +1359,9 @@ ul.instagram-pics {
 		padding: 0.25em 0.5em;
 	}
 
+
 /**
- * Comments Template
+ * IX. Commentaires
  * --------------------------------------------------------------------------- */
 
 #comments-template,
@@ -1304,7 +1373,9 @@ ul.instagram-pics {
 }
 
 
-/* ====== FOOTER WEBSITE ====== */
+/**
+ * X. Pied de page du site
+ * --------------------------------------------------------------------------- */
  
 #footer {
 	background-color: #2f292d;
@@ -1350,29 +1421,7 @@ ul.instagram-pics {
 		        hyphens: auto;
 	}
 
-/**
- * Mentions légales
- * --------------------------------------------------------------------------- */
-
-ul#menu-secondary-items {
-	list-style-type: none;
-	margin: 0 !important;
-	padding: 0 !important;
-}
-ul#menu-secondary-items .current_page_item > a,
-ul#menu-secondary-items .current_menu_item > a {
-	color: #FFFFFF !important;
-}
-
-.cc-revoke, .cc-window {
-	font-size: 1.5rem !important;
-	font-size: 15px !important;
-	font-family: 'Lato', sans-serif !important;
-	line-height: 1.5em !important;
-}
-
-
-/* ===== STRATE EQUIPE ===== */
+/* === X.1. Strate équipe === */
 
 #equipe h2 span {
     background-image: url(images/p-equipe.png);
@@ -1430,13 +1479,13 @@ ul#menu-secondary-items .current_menu_item > a {
 				line-height: 1.2em;
 			}
 
-/* ===== STRATE N&D ===== */
+/* === X.2. Strate Nature & Découvertes === */
 
 #ndstore{
 	padding: 10px 0;
 }
 
-	/* === NEWSLETTER === */
+/* X.2.a. Newsletter */
 
 	#newsletter{
 		padding: 10px;
@@ -1491,9 +1540,31 @@ ul#menu-secondary-items .current_menu_item > a {
 		}
 	
 
+/* === X.3. Mentions légales === */
+
+ul#menu-secondary-items {
+	list-style-type: none;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+ul#menu-secondary-items .current_page_item > a,
+ul#menu-secondary-items .current_menu_item > a {
+	color: #FFFFFF !important;
+}
+
+.cc-revoke, .cc-window {
+	font-size: 1.5rem !important;
+	font-size: 15px !important;
+	font-family: 'Lato', sans-serif !important;
+	line-height: 1.5em !important;
+}
+
+
 /**
- * Media Queries
+ * XI. Media Queries
  * --------------------------------------------------------------------------- */
+ 
+/* === XI.1. Au-dessus de 1440px === */
 
 @media only screen and (min-width: 1440px){
 		#menu-primary .menu-items > li > a{
@@ -1509,6 +1580,9 @@ ul#menu-secondary-items .current_menu_item > a {
 		font-size: 1em;
 	}
 }
+
+/* === XI.2. Entre 1280px et 1440px === */
+
 @media only screen and (min-width: 1280px) and (max-width: 1440px){
 	#menu-primary{
 		right: 150px !important;
@@ -1524,6 +1598,9 @@ ul#menu-secondary-items .current_menu_item > a {
 		font-size: 0.8em;
 	}
 }
+
+/* === XI.3. Entre 1152px et 1280px === */
+
 @media only screen and (min-width: 1152px) and (max-width: 1280px){
 	#menu-primary .menu-items > li > a{
 		font-size:0.9em;
@@ -1532,12 +1609,18 @@ ul#menu-secondary-items .current_menu_item > a {
 		font-size: 0.8em;
 	}
 }
+
+/* === XI.4. Entre 960px et 1152px === */
+
 @media only screen and (min-width: 960px) and (max-width: 1152px){
 	#menu-primary .menu-items > li > a,
 	ul.sub-menu li a{
 		font-size:0.7em;
 	}
 }
+
+/* === XI.5. Au-dessus de 960px === */
+
 @media only screen and (min-width: 960px){
 	body{
 		font-size: 1.8rem;
@@ -1728,9 +1811,13 @@ ul#menu-secondary-items .current_menu_item > a {
 		}
 }
 
+/* === XI.6. Au-dessus de 800px === */
+
 @media only screen and (max-width: 800px){
 	.ecom-desktop{display: none !important;}	
 }
+
+/* === XI.7. Au-dessus de 768px === */
 
 @media only screen and (min-width: 768px){
 	#facebook .entry{
@@ -1772,6 +1859,9 @@ ul#menu-secondary-items .current_menu_item > a {
 		padding: 4rem 0px 3rem;
 	}
 }
+
+/* === XI.8. Au-dessus de 600px === */
+
 @media only screen and (min-width: 600px){
 	#last-posts .entry{
 		display: inline-block;
@@ -1842,12 +1932,18 @@ ul#menu-secondary-items .current_menu_item > a {
 		margin: 0 auto;
 	}
 }
+
+/* === XI.9. Au-dessus de 568px === */
+
 @media only screen and (min-width: 568px){
 		.taxonomy-category .archive-title{
 			left: 60px;
 			bottom: 60px;
 		}
 }
+
+/* === XI.10. Au-dessus de 480px === */
+
 @media only screen and (min-width: 480px){
 	#facebook .entry{
 		width: 50%;
@@ -1901,8 +1997,9 @@ ul#menu-secondary-items .current_menu_item > a {
 	}
 }
 
+
 /**
- * Clearing Floats
+ * XII. Clearing Floats
  * --------------------------------------------------------------------------- */
 
 .clearfix{clear: both;}
