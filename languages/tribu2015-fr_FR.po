@@ -1,0 +1,339 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nature & Découvertes\n"
+"POT-Creation-Date: 2016-01-20 23:36+0100\n"
+"PO-Revision-Date: 2016-01-20 23:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: comment/comment.php:7 comment/ping.php:5
+#, php-format
+msgid "%s ago"
+msgstr "﻿il y a %s"
+
+#: comment/comment.php:8 comment/ping.php:6
+msgid "Permalink"
+msgstr "Percaline"
+
+#: content/content.php:120 content/content.php:143 content/content.php:166
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: content/content.php:121 content/content.php:144 content/content.php:167
+#: index.php:79
+msgid "Edit"
+msgstr "Modifier"
+
+#: content/error.php:4
+msgid "Nothing found"
+msgstr "“Oups !!”"
+
+#: content/error.php:8
+msgid "Apologies, but no entries were found."
+msgstr "Erreur 404 : cette page n’existe pas."
+
+#: content/error.php:9
+msgid "Back to home"
+msgstr "Retour à l’accueil"
+
+#: footer.php:209
+#, php-format
+msgid "Copyright &#169; %1$s %2$s"
+msgstr ""
+
+#: inc/theme.php:60
+msgctxt "nav menu location"
+msgid "Primary"
+msgstr "Principal"
+
+#: inc/theme.php:61
+msgctxt "nav menu location"
+msgid "Secondary"
+msgstr "Secondaire"
+
+#: inc/theme.php:76
+msgctxt "sidebar"
+msgid "Primary"
+msgstr "Principal"
+
+#: inc/theme.php:77 inc/theme.php:85
+msgid "Add sidebar description."
+msgstr "Ajouter une description à la barre latérale"
+
+#: inc/theme.php:84
+msgctxt "sidebar"
+msgid "Subsidiary"
+msgstr "Subsidiaire"
+
+#: index.php:93
+msgctxt "posts navigation"
+msgid "&larr; Previous"
+msgstr "&larr; Précédent"
+
+#: index.php:94
+msgctxt "posts navigation"
+msgid "Next &rarr;"
+msgstr "Suivant &rarr;"
+
+#: library/admin/meta-box-post-layout.php:35
+#: library/inc/functions-customize.php:72
+msgid "Layout"
+msgstr "Mise en page"
+
+#: library/admin/meta-box-post-style.php:35
+msgid "Style"
+msgstr "Style"
+
+#: library/admin/meta-box-post-template.php:41
+msgid "Template"
+msgstr "Gabarit"
+
+#: library/ext/breadcrumb-trail.php:244
+msgid "Browse:"
+msgstr "Parcourir :"
+
+#: library/ext/breadcrumb-trail.php:245
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:246
+msgid "Home"
+msgstr "Accueil"
+
+#: library/ext/breadcrumb-trail.php:247 library/inc/template-general.php:422
+msgid "404 Not Found"
+msgstr "404 Page non trouvée"
+
+#: library/ext/breadcrumb-trail.php:248 library/inc/template-general.php:218
+msgid "Archives"
+msgstr "﻿Archives"
+
+#: library/ext/breadcrumb-trail.php:250 library/inc/template-general.php:400
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Résultats de recherche pour &#8220;%s&#8221;"
+
+#: library/ext/breadcrumb-trail.php:252
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:254 library/inc/template-general.php:354
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:256
+#, php-format
+msgid "Week %s"
+msgstr "Semaine %s"
+
+#: library/ext/breadcrumb-trail.php:708 library/inc/template-general.php:376
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:725 library/inc/template-general.php:354
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:742 library/inc/template-general.php:330
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:758 library/ext/breadcrumb-trail.php:787
+#: library/ext/breadcrumb-trail.php:814 library/ext/breadcrumb-trail.php:841
+#: library/ext/breadcrumb-trail.php:1176 library/inc/template-general.php:262
+#: library/inc/template-general.php:286
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:759 library/ext/breadcrumb-trail.php:815
+#: library/ext/breadcrumb-trail.php:1180
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:760 library/ext/breadcrumb-trail.php:1184
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:788 library/inc/template-general.php:286
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: library/inc/class-media-meta.php:245 library/inc/template-media.php:172
+#, php-format
+msgid "%1$s &#215; %2$s"
+msgstr ""
+
+#: library/inc/functions-attr.php:202
+#, php-format
+msgctxt "sidebar aria label"
+msgid "%s Sidebar"
+msgstr ""
+
+#: library/inc/functions-attr.php:235
+#, php-format
+msgctxt "nav menu aria label"
+msgid "%s Menu"
+msgstr ""
+
+#: library/inc/functions-attr.php:476
+msgctxt "post time format"
+msgid "l, F j, Y, g:i a"
+msgstr ""
+
+#: library/inc/functions-attr.php:601
+msgctxt "comment time format"
+msgid "l, F j, Y, g:i a"
+msgstr ""
+
+#: library/inc/functions-customize.php:95
+msgid "Global Layout"
+msgstr "Mise en page globale"
+
+#: library/inc/functions-head.php:140
+#, php-format
+msgid "%1$s Page %2$s"
+msgstr ""
+
+#: library/inc/functions-layouts.php:51
+msgctxt "theme layout"
+msgid "Default"
+msgstr "Par défaut"
+
+#: library/inc/functions-utility.php:94
+msgid "(Untitled)"
+msgstr "(Sans titre)"
+
+#: library/inc/template-general.php:55
+msgid "http://wordpress.org"
+msgstr ""
+
+#: library/inc/template-general.php:55
+msgid "WordPress"
+msgstr ""
+
+#: library/inc/template-general.php:286
+#, php-format
+msgid "Week %1$s of %2$s"
+msgstr "Semaine %1$s de %2$s"
+
+#: library/inc/template-general.php:308
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr ""
+
+#: library/inc/template-post.php:219
+msgctxt "taxonomy terms separator"
+msgid ", "
+msgstr ""
+
+#: menu/breadcrumbs.php:10
+msgid "You are here:"
+msgstr "Vous êtes ici :"
+
+#: misc/archive-header.php:50
+msgid "Search Results"
+msgstr "Votre recherche"
+
+#: misc/archive-header.php:57
+msgid "You made a search about"
+msgstr "Vous avez effectué une recherche sur"
+
+#: misc/comments-error.php:6
+#, php-format
+msgid "Comments are closed, but %strackbacks%s and pingbacks are open."
+msgstr ""
+"Les commentaires sont fermés mais les %strackbacks%s et les pingbacks sont "
+"ouverts."
+
+#: misc/comments-error.php:13
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: misc/comments-nav.php:5
+msgid "Comments Navigation"
+msgstr "Naviguer dans les commentaires"
+
+#: misc/comments-nav.php:7
+msgctxt "comments navigation"
+msgid "&larr; Previous"
+msgstr "&larr; Précédent"
+
+#: misc/comments-nav.php:11
+#, php-format
+msgid "Page %1$s of %2$s"
+msgstr "Page %1$s de %2$s"
+
+#: misc/comments-nav.php:14
+msgctxt "comments navigation"
+msgid "Next &rarr;"
+msgstr "Suivant &rarr;"
+
+#: misc/loop-nav.php:7
+msgctxt "posts navigation"
+msgid "Previous"
+msgstr "Précédent"
+
+#: misc/loop-nav.php:8
+msgctxt "posts navigation"
+msgid "Next"
+msgstr "Suivant"
+
+#: searchform.php:11
+msgid "Search"
+msgstr "Recherche"
+
+#: sidebar/primary.php:12
+msgid "Example Widget"
+msgstr "Exemple de Widget"
+
+#: sidebar/primary.php:14
+#, php-format
+msgid ""
+"This is an example widget to show how the Primary sidebar looks by default. "
+"You can add custom widgets from the %swidgets screen%s in the admin."
+msgstr ""
+"Ceci est un widget exemple pour montrer comment la Sidebar est par défaut. "
+"Vous pouvez ajouter des widgets personnalisé depuis %swidgets screen%s dans "
+"l’admin. Si un widget personnalisé est ajouté, il sera remplacé par ces "
+"widgets."
+
+#. Theme Name of the plugin/theme
+msgid "Nature & Découvertes"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://www.natureetdecouvertes.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Thème du blog de la tribu version 2015"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Nature & Découvertes - Teamhair Na Ri"
+msgstr ""
