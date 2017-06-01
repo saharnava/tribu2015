@@ -450,7 +450,14 @@ function related_products( $amp = false ) {
 
 			$liste .= '<li class="produit">';
 			$liste .= '<a href="' . $lien . '" target="_blank">';
-			$liste .= '<img src="' . $thumb . '" alt="' . $image['alt'] . '" /><br/>';
+			
+			if ($amp){
+				$liste .= '<amp-img alt="' . $image['alt'] . '" src="' . $thumb . '" width="' . $thumbWidth . '" height="' . $thumbHeight . '"></amp-img><br />';
+			}
+			else {
+				$liste .= '<img src="' . $thumb . '" alt="' . $image['alt'] . '" /><br/>';
+			}
+			
 			$liste .= '<span class="produit_titre">';
 			$liste .= $titre;
 			$liste .= '</span><br/>';
