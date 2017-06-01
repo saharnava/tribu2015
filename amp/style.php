@@ -465,7 +465,6 @@ a.sd-button > span {
     display: none;
 }
 a.sd-button span.sharing-screen-reader-text {
-    background: none !important;
     display: none;
 }
 

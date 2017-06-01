@@ -442,6 +442,8 @@ function related_products( $amp = false ) {
 
 			$image = $row['todo_produitimg'];
 				$thumb = $image['sizes']['produit'];
+				$thumbWidth = $image['sizes'][ 'produit-width' ];
+				$thumbHeight = $image['sizes'][ 'produit-height' ];
 			$titre = $row['todo_produitnom'];
 			$prix = $row['todo_produitprix'];
 			$lien = $row['todo_produitlien'];
