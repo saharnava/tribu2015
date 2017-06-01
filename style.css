@@ -1231,7 +1231,7 @@ img.large {
 		margin-right: -0.2em;
 		width: 140px;
 		background-color: #FFFFFF;
-		height: 340px;
+		height: 240px;
 		padding: 5px;
 		border: 1px solid #e0e0e0 !important;
 		margin: 0 5px 15px;
@@ -1247,7 +1247,7 @@ img.large {
 		.produits a{
 			color: #3c3c3c;
 			display: block;
-			height: 320px;
+			height: 220px;
 			padding: 5px;
 			background-color: #FFFFFF;
 		}
@@ -1579,11 +1579,18 @@ ul#menu-secondary-items .current_menu_item > a {
 	ul.sub-menu li a {
 		font-size: 1em;
 	}
+	.produits ul li{
+		width: 15.25%;
+		height: 360px;
+	}
+		.produits a {
+			height: 340px;
+		}
 }
 
 /* === XI.2. Entre 1280px et 1440px === */
 
-@media only screen and (min-width: 1280px) and (max-width: 1440px){
+@media only screen and (min-width: 1280px) and (max-width: 1439px){
 	#menu-primary{
 		right: 150px !important;
 	}
@@ -1597,26 +1604,47 @@ ul#menu-secondary-items .current_menu_item > a {
 	ul.sub-menu li a {
 		font-size: 0.8em;
 	}
+	.produits ul li{
+		width: 15.25%;
+		height: 320px;
+	}
+		.produits a {
+			height: 300px;
+		}
 }
 
 /* === XI.3. Entre 1152px et 1280px === */
 
-@media only screen and (min-width: 1152px) and (max-width: 1280px){
+@media only screen and (min-width: 1152px) and (max-width: 1279px){
 	#menu-primary .menu-items > li > a{
 		font-size:0.9em;
 	}
 	ul.sub-menu li a {
 		font-size: 0.8em;
 	}
+	.produits ul li{
+		width: 15.25%;
+		height: 320px;
+	}
+		.produits a {
+			height: 300px;
+		}
 }
 
 /* === XI.4. Entre 960px et 1152px === */
 
-@media only screen and (min-width: 960px) and (max-width: 1152px){
+@media only screen and (min-width: 960px) and (max-width: 1151px){
 	#menu-primary .menu-items > li > a,
 	ul.sub-menu li a{
 		font-size:0.7em;
 	}
+	.produits ul li{
+		width: 15.25%;
+		height: 280px;
+	}
+		.produits a {
+			height: 260px;
+		}
 }
 
 /* === XI.5. Au-dessus de 960px === */
@@ -1625,9 +1653,6 @@ ul#menu-secondary-items .current_menu_item > a {
 	body{
 		font-size: 1.8rem;
 		font-size: 18px;
-	}
-	.produits ul li{
-		width: 15.25%;
 	}
 	.ecom-mobile{display: none;}
 	#mm-menu-primary,.menu-toggle{display: none;}
