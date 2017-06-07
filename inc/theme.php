@@ -47,6 +47,7 @@ function tribund_register_image_sizes() {
 	update_option( 'medium_size_h', 320 );
 	update_option( 'medium_crop', 1 );
 	add_image_size('auteur', 120, 120, true);
+	add_image_size('produit', 190, 190, true);
 }
 
 /**
@@ -231,36 +232,6 @@ $auteurs = get_field('post_auteur');
 
 }
 
-function amp_auteur(){
-	$auteurs = get_field('post_auteur');
-	if( $auteurs ) {
-		foreach( $auteurs as $auteur ){
-			$auteur_ID = $auteur->ID;
-			$auteur_url = get_permalink($auteur_ID);
-			$auteur_name = get_field('auteur_prenom', $auteur_ID);
-			$auteur_title = get_field('auteur_titre', $auteur_ID);
-			$auteur_image = get_field('auteur_photo', $auteur_ID);
-			if ( !empty($auteur_image) ) {
-				$caption = $auteur_image['caption'];
-				$alt = $auteur_image['alt'];
-				$size = 'auteur';
-				$url = $auteur_image['sizes'][ $size ];
-				$width = $auteur_image['sizes'][ $size . '-width' ];
-				$height = $auteur_image['sizes'][ $size . '-height' ];
-				$image = $url;
-			}
-			else{
-				$image = get_bloginfo('stylesheet_directory') . '/images/i-auteurdef.png';
-			}
-			echo '<a href="' . $auteur_url . '" class="post-author-avatar">';
-			echo '<amp-img alt="' . $auteur_name . ', ' . $auteur_title . ' - Nature & Découvertes" src="' . $image . '" class="avatar avatar-26 photo i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout" height="26" width="26" style="width: 26px; height: 26px;">';
-			echo '<img alt="' . $auteur_name . ', ' . $auteur_title . ' - Nature & Découvertes" class="i-amphtml-fill-content i-amphtml-replaced-content" src="' . $image . '">';
-			echo '</amp-img>';
-			echo '</a> Par <a href="' . $auteur_url . '">' . $auteur_name . '</a>, ' . $auteur_title;
-		}
-	}
-}
-
 function cat_auteur(){
 
 	$auteurs = get_field('post_auteur');
@@ -283,38 +254,14 @@ function cat_auteur(){
 	
 }
 
-function pix_author() {
-$auteurs = get_field('post_auteur');
-
-	if( $auteurs ) {
-		foreach( $auteurs as $auteur ){
-			$auteur_ID = $auteur->ID;
-			$auteur_image = get_field('auteur_photo', $auteur_ID);
-		
-			if ( !empty($auteur_image) ) {
-				$size = 'auteur';
-				$url = $auteur_image['sizes'][ $size ];
-				$width = $auteur_image['sizes'][ $size . '-width' ];
-				$height = $auteur_image['sizes'][ $size . '-height' ];
-				$image = '<img class="i-amphtml-fill-content i-amphtml-replaced-content" src="' . $url . '" data-pin-nopin="true">';
-			}
-			else{
-				$image = '<img class="i-amphtml-fill-content i-amphtml-replaced-content" src="' . get_bloginfo('stylesheet_directory') . '/images/i-auteurdef.png" data-pin-nopin="true">';
-			}
-			echo '<amp-img src="' . $url . '" width="26" height="26" layout="fixed" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout" style="width: 26px; height: 26px;">';
-			echo $image;
-			echo '</amp-img>';
-		}
-	}
-}
-
 
 /**
  * Les 5 derniers articles de la même catégorie
  *
  */
-
-function post_in_cat(){
+ 
+function post_in_cat( $amp = false ){
+	unset($post);
 	global $post;
 	$categories = get_the_category();
 	$category = $categories[0];
@@ -325,12 +272,23 @@ function post_in_cat(){
 	else {
 		$myposts = get_posts("numberposts=4&category=$category->ID&exclude=$post->ID&post_status=publish");
 	}
+	
 	$post_list = '<div class="cat-related">';
+	if ( $amp ) {
+		$post_list .= '<div class="amp-wp-related">';
+	}
+
 	$post_list .= '<h2>Dans la m&ecirc;me cat&eacute;gorie</h2>';
 	$post_list .= '<ul>';
 	foreach($myposts as $post) {
+		setup_postdata( $post );
 		$post_titre =  get_the_title( $post->ID );
-		$post_url = get_permalink( $post->ID );
+		if ( $amp ) {
+			$post_url = get_permalink( $post->ID ) . 'amp';
+		}
+		else {
+			$post_url = get_permalink( $post->ID );
+		}
 		$post_excerpt = get_field('post_intro', $post->ID);
 		$post_intro = wp_html_excerpt($post_excerpt, 160, '...');
 		
@@ -340,8 +298,13 @@ function post_in_cat(){
 		$post_list .= '</li>';
 	}
 	$post_list .= '</ul>';
+	if ( $amp ) {
+		$post_list .= '</div>';
+	}	
 	$post_list .= '</div>';
 	echo $post_list;
+	wp_reset_postdata();
+	
 }
 
 
@@ -444,6 +407,78 @@ class walker_sublevel_container extends Walker_Nav_Menu
  */
 
 remove_filter('template_redirect', 'redirect_canonical');
+
+
+/*
+ * Afficher les produits reliés
+ *
+ */
+ 
+function related_products( $amp = false ) {
+	 
+	global $post;
+	
+	$rows = get_field('todo_produit', $post->ID);
+	
+	$todo_titre = get_field('todo_titre', $post->ID);
+	if ($todo_titre):
+		$entete = '<h2 class="produits-titre">' . $todo_titre . '</h2>';
+	endif;
+	
+	if ( $rows ) {
+		
+		if ($amp) {
+			$liste = '<div class="amp-wp-related-products">';
+		}
+		else {
+			$liste = '<div class="produits clearfix">';
+		}
+
+		if ( isset( $entete ) ) $liste .= $entete;		
+		$liste .= '<ul class="todo">';
+		
+		foreach($rows as $row) {
+			setup_postdata( $row );
+
+			$image = $row['todo_produitimg'];
+				$thumb = $image['sizes']['produit'];
+				$thumbWidth = $image['sizes'][ 'produit-width' ];
+				$thumbHeight = $image['sizes'][ 'produit-height' ];
+			$titre = $row['todo_produitnom'];
+			$prix = $row['todo_produitprix'];
+			$lien = $row['todo_produitlien'];
+
+			$liste .= '<li class="produit">';
+			$liste .= '<a href="' . $lien . '" target="_blank">';
+						
+			if ($amp){
+				$liste .= '<amp-img alt="' . $image['alt'] . '" src="' . $thumb . '" width="' . $thumbWidth . '" height="' . $thumbHeight . '"></amp-img><br />';
+			}
+			else {
+				$liste .= '<img src="' . $thumb . '" alt="' . $image['alt'] . '" /><br/>';
+			}
+			
+			$liste .= '<span class="produit_titre">';
+			$liste .= $titre;
+			$liste .= '</span><br/>';
+			$liste .= '<span class="produit_prix">';
+			$liste .= $prix;
+			$liste .= '</span>';
+			$liste .= '</a>';
+			$liste .= '</li>';
+			
+		}
+		
+		$liste .= '</ul>';
+		$liste .= '</div>';
+		wp_reset_postdata();
+	}
+	
+	echo $liste;
+	
+	setup_postdata($post);
+	 
+}
 
 /*
  * Mur Facebook de Nature & Découvertes
@@ -621,3 +656,44 @@ foreach ($fbdata->data as $news ) :
 		
 <?php endforeach;	
 }
+
+
+/*
+ * AMP : personnalisation de l'affichage du plugin AMP Auttomatic
+ *
+ */
+
+function amp_auteur(){
+	$auteurs = get_field('post_auteur');
+	if( $auteurs ) {
+		foreach( $auteurs as $auteur ){
+			$auteur_ID = $auteur->ID;
+			$auteur_url = get_permalink($auteur_ID);
+			$auteur_name = get_field('auteur_prenom', $auteur_ID);
+			$auteur_title = get_field('auteur_titre', $auteur_ID);
+			echo '<a href="' . $auteur_url . '" class="post-author-avatar">';
+			echo '</a> Par <a href="' . $auteur_url . '">' . $auteur_name . '</a>, ' . $auteur_title;
+		}
+	}
+}
+
+function amp_pixauteur() {
+	$auteurs = get_field('post_auteur');
+
+	if( $auteurs ) {
+		foreach( $auteurs as $auteur ){
+			$auteur_ID = $auteur->ID;
+			$auteur_image = get_field('auteur_photo', $auteur_ID);
+		
+			if ( !empty($auteur_image) ) {
+				$size = 'auteur';
+				$url = $auteur_image['sizes'][ $size ];
+			}
+			else{
+				$url = get_bloginfo('stylesheet_directory') . '/images/i-auteurdef.png';
+			}
+			echo '<amp-img src="' . $url . '" width="26" height="26" layout="fixed"></amp-img>';
+		}
+	}
+}
+
