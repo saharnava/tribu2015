@@ -450,7 +450,7 @@ function related_products( $amp = false ) {
 
 			$liste .= '<li class="produit">';
 			$liste .= '<a href="' . $lien . '" target="_blank">';
-			
+						
 			if ($amp){
 				$liste .= '<amp-img alt="' . $image['alt'] . '" src="' . $thumb . '" width="' . $thumbWidth . '" height="' . $thumbHeight . '"></amp-img><br />';
 			}
