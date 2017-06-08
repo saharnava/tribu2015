@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 	<?php do_action( 'amp_post_template_head', $this ); ?>
+	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 	<style amp-custom>
 		<?php $this->load_parts( array( 'style' ) ); ?>
 		<?php do_action( 'amp_post_template_css', $this ); ?>
@@ -36,7 +37,16 @@
 		<?php
 			if ( function_exists( 'sharing_display' ) ) sharing_display( '', true );
 		?>
-		<!-- <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Partager sur</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-8284" class="share-facebook sd-button share-icon no-text" href="http://tribu.natureetdecouvertes.com/yoga-aider-a-devenir-mere/?share=facebook&amp;nb=1" target="_blank" title="Cliquez pour partager sur Facebook"><span><span class="share-count">239</span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Facebook(ouvre dans une nouvelle fenêtre)<span class="share-count">239</span></span></a></li><li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-8284" class="share-pinterest sd-button share-icon no-text" href="http://tribu.natureetdecouvertes.com/yoga-aider-a-devenir-mere/?share=pinterest&amp;nb=1" target="_blank" title="Cliquez pour partager sur Pinterest"><span><span class="share-count">1</span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Pinterest(ouvre dans une nouvelle fenêtre)<span class="share-count">1</span></span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-8284" class="share-twitter sd-button share-icon no-text" href="http://tribu.natureetdecouvertes.com/yoga-aider-a-devenir-mere/?share=twitter&amp;nb=1" target="_blank" title="Cliquez pour partager sur Twitter"><span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Twitter(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-end"></li></ul></div></div></div> -->
+		<div class="sharedaddy sd-sharing-enabled">
+			<div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+				<h3 class="sd-title">Partager sur</h3>
+				<div class="sd-content">
+					<amp-social-share type="pinterest" data-param-media="<?php echo get_the_post_thumbnail_url(); ?>" width="40" height="40" class="sd-button"></amp-social-share>
+					<amp-social-share type="twitter" width="40" height="40" class="sd-button"></amp-social-share>
+					<amp-social-share type="whatsapp" width="40" height="40" class="sd-button"></amp-social-share>
+				</div>
+			</div>
+		</div>
 		<div class="amp-wp-view-desktop">
 			<a href="<?php echo esc_url( get_permalink( get_queried_object_id() ) ); ?>">Afficher la version originale</a>
 		</div>
@@ -48,16 +58,21 @@
 
 <?php do_action( 'amp_post_template_footer', $this ); ?>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
- 
-  ga('create', 'UA-2369445-14', 'auto');
-  ga('send', 'pageview');
- 
+<amp-analytics type="googleanalytics">
+<script type="application/json">
+{
+  "vars": {
+    "account": "UA-2369445-14"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview"
+    }
+  }
+}
 </script>
+</amp-analytics>
 
 </body>
 </html>
