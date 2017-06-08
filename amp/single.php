@@ -42,7 +42,7 @@
 				<h3 class="sd-title">Partager sur</h3>
 				<div class="sd-content">
 					<amp-social-share type="facebook" width="40" height="40" class="sd-button"></amp-social-share>
-					<amp-social-share type="pinterest" data-param-media="<?php get_the_post_thumbnail_url(); ?>" width="40" height="40" class="sd-button"></amp-social-share>
+					<amp-social-share type="pinterest" data-param-media="<?php echo get_the_post_thumbnail_url(); ?>" width="40" height="40" class="sd-button"></amp-social-share>
 					<amp-social-share type="twitter" width="40" height="40" class="sd-button"></amp-social-share>
 					<amp-social-share type="whatsapp" width="40" height="40" class="sd-button"></amp-social-share>
 				</div>
