@@ -416,7 +416,7 @@ amp-carousel > amp-img > img {
 .sharedaddy h3 {
 	margin: 0;
 }
-.i-amphtml-layout-fixed{
+.sd-button{
 	margin: 10px 10px 0 0;
 }
 /*
