@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 	<?php do_action( 'amp_post_template_head', $this ); ?>
+	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 	<style amp-custom>
 		<?php $this->load_parts( array( 'style' ) ); ?>
 		<?php do_action( 'amp_post_template_css', $this ); ?>
@@ -36,7 +37,17 @@
 		<?php
 			if ( function_exists( 'sharing_display' ) ) sharing_display( '', true );
 		?>
-		<!-- <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Partager sur</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-8284" class="share-facebook sd-button share-icon no-text" href="http://tribu.natureetdecouvertes.com/yoga-aider-a-devenir-mere/?share=facebook&amp;nb=1" target="_blank" title="Cliquez pour partager sur Facebook"><span><span class="share-count">239</span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Facebook(ouvre dans une nouvelle fenêtre)<span class="share-count">239</span></span></a></li><li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-8284" class="share-pinterest sd-button share-icon no-text" href="http://tribu.natureetdecouvertes.com/yoga-aider-a-devenir-mere/?share=pinterest&amp;nb=1" target="_blank" title="Cliquez pour partager sur Pinterest"><span><span class="share-count">1</span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Pinterest(ouvre dans une nouvelle fenêtre)<span class="share-count">1</span></span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-8284" class="share-twitter sd-button share-icon no-text" href="http://tribu.natureetdecouvertes.com/yoga-aider-a-devenir-mere/?share=twitter&amp;nb=1" target="_blank" title="Cliquez pour partager sur Twitter"><span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Twitter(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-end"></li></ul></div></div></div> -->
+		<div class="sharedaddy sd-sharing-enabled">
+			<div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+				<h3 class="sd-title">Partager sur</h3>
+				<div class="sd-content">
+					<amp-social-share type="facebook" data-param-app_id="1595225104068728" width="25" height="25" class="button-facebook"></amp-social-share>
+					<amp-social-share type="pinterest"></amp-social-share>
+					<amp-social-share type="twitter"></amp-social-share>
+					<amp-social-share type="whatsapp"></amp-social-share>
+				</div>
+			</div>
+		</div>
 		<div class="amp-wp-view-desktop">
 			<a href="<?php echo esc_url( get_permalink( get_queried_object_id() ) ); ?>">Afficher la version originale</a>
 		</div>

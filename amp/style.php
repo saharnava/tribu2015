@@ -413,43 +413,34 @@ amp-carousel > amp-img > img {
 .sharedaddy h3 {
 	margin: 0;
 }
-.sharedaddy ul{
-	list-style: none;
-	margin: 10px 0 0 0;
-	padding: 0;
+/*.button-facebook{
+	background-color: transparent;
+	background-image: url(<?php echo get_stylesheet_directory_uri( ) ?>/images/bt-share-facebook.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
-.sharedaddy ul > li {
-	margin: 0 10px 0 0;
-	padding: 0;
-	display: inline;
-}
-.sharedaddy a,
-.sharedaddy a:link,
-.sharedaddy a:visited,
-.sharedaddy a:hover {
-    font-style: normal;
-    border: none;
-}
-.sharedaddy a.sd-button {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 400;
-    vertical-align: middle;
-    
-}
-.sharedaddy .no-text {
-    width: 30px;
-    height: 30px;
-}
-li.share-facebook a.sd-button > span {
-    background-image: url(<?php echo get_stylesheet_directory_uri( ) ?>/images/bt-share-facebook.png);
-}
-li.share-pinterest a.sd-button > span {
+.button-pinterest {
+	background-color: transparent;
     background-image: url(<?php echo get_stylesheet_directory_uri( ) ?>/images/bt-share-pinterest.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
-li.share-twitter a.sd-button > span {
+.button-twitter {
+	background-color: transparent;
     background-image: url(<?php echo get_stylesheet_directory_uri( ) ?>/images/bt-share-twitter.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
+.button-whatsapp {
+	background-color: transparent;
+    background-image: url(<?php echo get_stylesheet_directory_uri( ) ?>/images/bt-share-whatsapp.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}*/
 .sd-social-icon a.sd-button > span {
     width: 30px;
     height: 30px;
