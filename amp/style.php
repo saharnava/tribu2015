@@ -213,7 +213,7 @@ blockquote p:last-child {
 }
 
 .amp-wp-byline amp-img {
-	border: 1px solid <?php echo sanitize_hex_color( $link_color ); ?>;
+	border: 1px solid #966b41;
 	border-radius: 50%;
 	position: relative;
 	margin-right: 6px;
