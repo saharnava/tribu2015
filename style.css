@@ -79,6 +79,24 @@
 		9. Au-dessus de 568px
 		10. Au-dessus de 480px
 	XII. Clearing Floats
+
+
+Couleurs :
+
+Rouge			:	#d63625
+Noir			:	#000000
+Noir clair		:	#010102
+Blanc			:	#FFFFFF
+Gris clair		:	#959595
+Gris clair 2	:	#e0e0e0
+Gris très clair	:	#e6e6e6
+Gris moyen		:	#59595d
+Gris moyen 2	:	#656464
+Gris foncé		:	#3c3c3c
+Gris foncé 2	:	#2f292d
+Beige			:	#f9f5ef
+Doré			:	#966b41
+Doré clair		:	rgba(158,118,79,0.8)
 		
 **/
 
@@ -486,7 +504,7 @@ img.large {
 	.menu-toggle:before,
 	.menu-toggle:after,
 	.menu-toggle span {
-		background: #3d3c3c;
+		background: #3c3c3c;
 		content: '';
 		display: block;
 		position: relative;
