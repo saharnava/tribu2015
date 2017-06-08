@@ -225,6 +225,8 @@ $auteurs = get_field('post_auteur');
 			else {
 				$auteur_content = $auteur_name;
 			}
+			echo '<span style="display:none;" itemprop="publisher" itemtype="http://schema.org/Organization" itemscope="">
+    <span itemprop="name">' . get_bloginfo( 'name' ) . '</span></span>';
 			echo '<a href="' . $auteur_url . '">' . $image . '</a>';			
 			echo '<p class="auteur-titre vcard author">Par <a href="' . $auteur_url . '">' . $auteur_content . '</a></p>';
 		}
