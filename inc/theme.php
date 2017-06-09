@@ -489,15 +489,16 @@ function tribu_facebook(){
 	$page_id = '86664673840';
 	$access_token = '1874168346189094|lls6Hrb3c7EqquWP8tmlgBiQ9O8';
 	$json_object = @file_get_contents('https://graph.facebook.com/' . $page_id . 
-	'/posts?limit=6&access_token=' . $access_token);
+	'?fields=posts.limit(6)%7Bcreated_time%2Cname%2Cid%2Cmessage%2Cdescription%2Ctype%2Cobject_id%2Clink%2Ccaption%7D&access_token=' . $access_token);
 	$fbdata = json_decode($json_object);
 	//var_dump($fbdata);
+
 	
-foreach ($fbdata->data as $news ) :
+foreach ($fbdata->posts->data as $news ) :
 		setlocale(LC_TIME, 'fr_FR.UTF8', 'fr.UTF8', 'fr_FR.UTF-8', 'fr.UTF-8');
 		$news_date = strftime('%e %B %G', strtotime($news->created_time));
-		$news_author = $news->from->name;
-		$news_linkauthor = 'https://facebook.com/' . $news->from->id;
+		//$news_author = $news->from->name;
+		//$news_linkauthor = 'https://facebook.com/' . $news->from->id;
 		
 		if (!empty($news->name)) {
 			$news_title = htmlspecialchars($news->name);
