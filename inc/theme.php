@@ -487,7 +487,7 @@ function related_products( $amp = false ) {
 
 function tribu_facebook(){
 	$page_id = '86664673840';
-	$access_token = '1874168346189094|c4cd0c4ada1e6dfe38c5e3fd534cdd31';
+	$access_token = '1874168346189094|lls6Hrb3c7EqquWP8tmlgBiQ9O8';
 	$json_object = @file_get_contents('https://graph.facebook.com/' . $page_id . 
 	'/posts?limit=6&access_token=' . $access_token);
 	$fbdata = json_decode($json_object);
