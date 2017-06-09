@@ -506,11 +506,11 @@ foreach ($fbdata->data as $news ) :
 			if (isset($news->description)) {
 				$nudedesc = strip_tags($news->description);
 				$nbcar2 = strlen($nudedesc);
-				if ($nbcar2 < 190) {
+				if ($nbcar2 < 220) {
 					$img_desc = $news->description;
 				}
 				else {
-					$img_desc = substr($news->description, 0, 190) . '...';
+					$img_desc = substr($news->description, 0, 220) . '...';
 				}
 			}
 			
@@ -525,11 +525,11 @@ foreach ($fbdata->data as $news ) :
 			if (!empty($news->description)) {
 				$nudedesc = strip_tags($news->description);
 				$nbcar2 = strlen($nudedesc);
-				if ($nbcar2 < 190) {
+				if ($nbcar2 < 220) {
 					$video_desc = $news->description;
 				}
 				else {
-					$video_desc = substr($news->description, 0, 190) . '...';
+					$video_desc = substr($news->description, 0, 220) . '...';
 				}
 			}
 			else {$video_desc= '';}
@@ -546,11 +546,11 @@ foreach ($fbdata->data as $news ) :
 			if (isset($news->description)) {
 				$nudedesc = strip_tags($news->description);
 				$nbcar2 = strlen($nudedesc);
-				if ($nbcar2 < 190) {
+				if ($nbcar2 < 220) {
 					$news_desc = $news->description;
 				}
 				else {
-					$news_desc = substr($news->description, 0, 190) . '...';
+					$news_desc = substr($news->description, 0, 220) . '...';
 				}
 			}
 		}
@@ -565,11 +565,11 @@ foreach ($fbdata->data as $news ) :
 			if (isset($news->description)) {
 				$nudedesc = strip_tags($news->description);
 				$nbcar2 = strlen($nudedesc);
-				if ($nbcar2 < 190) {
+				if ($nbcar2 < 220) {
 					$news_caption = $news->description;
 				}
 				else {
-					$$news_caption = substr($news->description, 0, 190) . '...';
+					$$news_caption = substr($news->description, 0, 220) . '...';
 				}
 			}
 		}
@@ -583,11 +583,11 @@ foreach ($fbdata->data as $news ) :
 			if (isset($news->description)) {
 				$nudedesc = strip_tags($news->description);
 				$nbcar2 = strlen($nudedesc);
-				if ($nbcar2 < 190) {
+				if ($nbcar2 < 220) {
 					$news_desc = $news->description;
 				}
 				else {
-					$$news_desc = substr($news->description, 0, 190) . '...';
+					$$news_desc = substr($news->description, 0, 220) . '...';
 				}
 			}
 		}				
