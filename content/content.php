@@ -28,10 +28,6 @@
 				<div class="meta-content">
 					<?php
 						if ( function_exists( 'sharing_display' ) ) sharing_display( '', true );
-						if ( class_exists( 'Jetpack_Likes' ) ) {
-						    $custom_likes = new Jetpack_Likes;
-						    echo $custom_likes->post_likes( '' );
-						}
 					?>
 					<div class="wp-post-rating">
 						<?php if(function_exists('the_ratings')) { ?>
@@ -60,54 +56,8 @@
 			
 			<?php edit_post_link(); ?>
 
-			<?php if( have_rows('todo_produit') ): ?>
+			<?php related_products(); ?>
 			
-			<div class="produits clearfix">
-			
-				<?php global $post;
-					$todo_titre = get_field('todo_titre', $post->ID);
-					if ($todo_titre): ?>
-					
-				<h2 class="produits-titre"><?php echo $todo_titre; ?></h2>
-				
-				<?php endif; ?>
-				
-				<ul class="todo">
-				
-				<?php while( have_rows('todo_produit') ): the_row(); 
-			
-					// vars
-					$image = get_sub_field('todo_produitimg');
-					$titre = get_sub_field('todo_produitnom');
-					$prix = get_sub_field('todo_produitprix');
-					$lien = get_sub_field('todo_produitlien');
-			
-					?>
-					
-					<li class="produit">
-					
-						<?php if( $lien ): ?>
-						<a href="<?php echo $lien; ?>" target="_blank">
-						<?php endif; ?>
-			
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" /><br/>
-			
-						<span class="produit_titre"><?php echo $titre; ?></span><br /><span class="produit_prix"><?php echo $prix; ?></span>
-			
-						<?php if( $lien ): ?>
-						</a>
-						<?php endif; ?>
-
-					</li>
-
-				<?php endwhile ; ?>
-
-				</ul>
-			
-			</div>
-			
-			<?php endif; ?>
-
 		</div><!-- .entry-content -->
 		
 		<?php comments_template( '', true ); // Loads the comments.php template. ?>
