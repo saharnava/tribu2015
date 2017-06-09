@@ -43,8 +43,8 @@ function tribund_register_image_sizes() {
 	//set_post_thumbnail_size( 150, 150, true );
 	update_option( 'large_size_w', 1280 );
 	update_option( 'large_crop', 0 );
-	update_option( 'medium_size_w', 620 );
-	update_option( 'medium_size_h', 320 );
+	update_option( 'medium_size_w', 690 );
+	update_option( 'medium_size_h', 350 );
 	update_option( 'medium_crop', 1 );
 	add_image_size('auteur', 120, 120, true);
 	add_image_size('produit', 190, 190, true);
