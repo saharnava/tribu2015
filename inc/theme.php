@@ -516,7 +516,16 @@ foreach ($fbdata->posts->data as $news ) :
 		if (isset($news->message)) $news->message = preg_replace($patterns, $replace, $news->message);
 		if (isset($news->description)) $news->description = preg_replace($patterns, $replace, $news->description);
 
-		if (isset($news->message)) $news_intro = $news->message;
+		if (isset($news->message)) {
+			$nudemessage = strip_tags($news->message);
+			$nbcar = strlen($nudemessage);
+			if($nbcar < 220){
+				$news_intro = $news->message;
+			}
+			else {
+				$news_intro = substr($news->message, 0, 220) . '...';
+			}
+		}
 		
 		if ($news->type == 'photo') {
 			
@@ -530,7 +539,16 @@ foreach ($fbdata->posts->data as $news ) :
 
 			$news_link = 'https://www.facebook.com/permalink.php?story_fbid=' . $news_id . '&id=' . $page_id . '&substory_index=0';
 			if (isset($news->link)) $img_link = $news->link;
-			if (isset($news->description)) $img_desc = $news->description;
+			if (isset($news->description)) {
+				$nudedesc = strip_tags($news->description);
+				$nbcar2 = strlen($nudedesc);
+				if ($nbcar2 < 220) {
+					$img_desc = $news->description;
+				}
+				else {
+					$img_desc = substr($news->description, 0, 220) . '...';
+				}
+			}
 			
 		}
 		if ($news->type == 'video') {
@@ -541,7 +559,14 @@ foreach ($fbdata->posts->data as $news ) :
 			$picdata = json_decode($json_pic);
 			$video_thumb = $picdata->full_picture;
 			if (!empty($news->description)) {
-				$video_desc = $news->description;
+				$nudedesc = strip_tags($news->description);
+				$nbcar2 = strlen($nudedesc);
+				if ($nbcar2 < 220) {
+					$video_desc = $news->description;
+				}
+				else {
+					$video_desc = substr($news->description, 0, 220) . '...';
+				}
 			}
 			else {$video_desc= '';}
 			
@@ -554,7 +579,16 @@ foreach ($fbdata->posts->data as $news ) :
 			$thumbdata = json_decode($json_thumb);
 			$news_thumb = $thumbdata->cover->source;
 			$news_caption = $news->caption;
-			$news_desc = $news->description;
+			if (isset($news->description)) {
+				$nudedesc = strip_tags($news->description);
+				$nbcar2 = strlen($nudedesc);
+				if ($nbcar2 < 220) {
+					$news_desc = $news->description;
+				}
+				else {
+					$news_desc = substr($news->description, 0, 220) . '...';
+				}
+			}
 		}
 		if ($news->type == 'link') {
 			$news_id = $news->id;
@@ -564,7 +598,16 @@ foreach ($fbdata->posts->data as $news ) :
 			$picdata = json_decode($json_pic);
 			$picurl = str_replace('https://scontent.xx.fbcdn.net/t45.1600-4/', 'https://scontent-cdg2-1.xx.fbcdn.net/t45.1600-4/p476x249/', $picdata->full_picture);
 			$news_thumb = $picurl;
-			$news_caption = $news->message;
+			if (isset($news->description)) {
+				$nudedesc = strip_tags($news->description);
+				$nbcar2 = strlen($nudedesc);
+				if ($nbcar2 < 220) {
+					$news_caption = $news->description;
+				}
+				else {
+					$$news_caption = substr($news->description, 0, 220) . '...';
+				}
+			}
 		}
 		if ($news->type == 'note') {
 			$news_id = $news->id;
@@ -573,7 +616,16 @@ foreach ($fbdata->posts->data as $news ) :
 			'?fields=full_picture&access_token=' . $access_token);
 			$picdata = json_decode($json_pic);
 			$news_thumb = $picdata->full_picture;
-			$news_desc = $news->message;
+			if (isset($news->description)) {
+				$nudedesc = strip_tags($news->description);
+				$nbcar2 = strlen($nudedesc);
+				if ($nbcar2 < 220) {
+					$news_desc = $news->description;
+				}
+				else {
+					$$news_desc = substr($news->description, 0, 220) . '...';
+				}
+			}
 		}				
 		
 ?>
