@@ -161,7 +161,11 @@ h3 {
 
 /* === I.5. Blockquotes, quotes, and cites === */
 
-blockquote {}
+blockquote {
+	padding-left: 20px;
+	border-left: 5px solid #966b41;
+	font-size: 1.2em;
+}
 
 	blockquote blockquote {}
 
