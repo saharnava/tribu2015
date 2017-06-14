@@ -47,10 +47,19 @@
 			<meta itemprop="dateModified" content="<?php echo get_the_time( 'Y-m-d\TH:i:sP' ); ?>"/>
 			
 			<div class="entry-byline">
-				<div class="entry-summary" itemprop="headline"><?php tribu_excerpt(); ?></div>
+				<div class="entry-summary" itemprop="description"><?php tribu_excerpt(); ?></div>
 			</div><!-- .entry-byline -->
 			
 			<div <?php hybrid_attr( 'entry-author vcard author' ); ?> itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><?php post_auteur(); ?></div>
+			<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization" style="display: none;">
+				<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo.png"/>
+					<meta itemprop="url" content="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo.png">
+					<meta itemprop="width" content="200">
+					<meta itemprop="height" content="96">
+				</div>
+				<meta itemprop="name" content="<?php bloginfo( 'name' ); ?>">
+			</div>
 			
 			<?php the_content(); ?>
 			
