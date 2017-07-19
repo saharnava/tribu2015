@@ -294,7 +294,7 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 #. Author URI of the plugin/theme
-msgid "http://www.natureetdecouvertes.com"
+msgid "https://www.natureetdecouvertes.com"
 msgstr ""
 
 #. Description of the plugin/theme

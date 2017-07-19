@@ -250,7 +250,7 @@ window.cookieconsent.initialise({
     "message": "Afin de vous garantir la meilleure expérience de navigation, le site de la Tribu Nature & Découvertes recourt à l'utilisation de cookies, en continuant votre navigation sur le site de la Tribu Nature & Découvertes vous en acceptez l'usage. Pour en savoir plus sur les cookies, ",
     "dismiss": "J'ai compris",
     "link": "cliquez ici.",
-    "href": "http://www.natureetdecouvertes.com/cookies"
+    "href": "https://www.natureetdecouvertes.com/cookies"
   }
 })});
 </script>
