@@ -497,8 +497,7 @@ function tribu_facebook(){
 foreach ($fbdata->posts->data as $news ) :
 		setlocale(LC_TIME, 'fr_FR.UTF8', 'fr.UTF8', 'fr_FR.UTF-8', 'fr.UTF-8');
 		$news_date = strftime('%e %B %G', strtotime($news->created_time));
-		//$news_author = $news->from->name;
-		//$news_linkauthor = 'https://facebook.com/' . $news->from->id;
+		$news_type = $news->type;
 		
 		if (!empty($news->name)) {
 			$news_title = htmlspecialchars($news->name);
@@ -626,10 +625,15 @@ foreach ($fbdata->posts->data as $news ) :
 					$$news_desc = substr($news->description, 0, 220) . '...';
 				}
 			}
-		}				
-		
+		}
+		if ($news->type == 'status') {
+			$news_id = $news->id;
+			$news_link = "https://www.facebook.com/natureetdecouvertes/";
+			$json_status = @file_get_contents('https://graph.facebook.com/' . $news_id . 
+			'?fields=full_picture&access_token=' . $access_token);
+		}
 ?>
-		<article <?php hybrid_attr( 'post' ); ?>>
+		<article <?php post_class( $news_type ); ?> itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 			<?php if ($news->type == 'photo'){ ?>
 			<header class="entry-header" style="background-image:url(<?php echo $img_src; ?>)">
 				<a href="<?php echo $img_link; ?>" target="_blank"><img src="<?php echo $img_src; ?>" alt="<?php echo $news_title; ?>" title="<?php echo $news_title; ?>" class="fb-img" /></a>
@@ -704,6 +708,11 @@ foreach ($fbdata->posts->data as $news ) :
 				</p>
 				<?php } ?>
 			</div>
+			<?php } ?>
+			<?php if($news->type == 'status') { ?>
+			<header class="entry-header" style="background-image:url(<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo.png)">
+				<a href="<?php echo $news_link; ?>" target="_blank"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo.png" alt="<?php echo $news_title; ?>" title="<?php echo $news_title; ?>" class="fb-img" /></a>
+			</header>
 			<?php } ?>
 		</article>
 		
