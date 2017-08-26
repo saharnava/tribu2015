@@ -861,7 +861,8 @@ img.large {
 		/* Instagram */
 		
 		.home #instagram{
-			background-color: #FFFFFF;
+			background-color: #f9f5ef;
+			/*background-color: #FFFFFF;*/
 		}
 		
 		.home #instagram h2 span {
