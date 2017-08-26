@@ -115,24 +115,6 @@ get_header(); // Loads the header.php template. ?>
 	
 	</div>
 	
-<?php if ( !empty(get_field( 'facebook_accroche' ) )) { ?>
-
-	<div id="facebook" class="home-content clearfix">
-	
-		<div class="banner-content">
-	
-		<h2><span class="texte-titre"><?php the_field( 'facebook_accroche' ); ?></span></h2>
-				
-		<?php tribu_facebook(); ?>
-		
-		<div class="social-button"><a href="https://www.facebook.com/natureetdecouvertes" target="_blank" title="Nature & Découvertes sur Facebook" class="button">Découvrir la suite sur Facebook</a></div>
-		
-		</div>
-	
-	</div>
-	
-<?php } ?>
-
 <?php if ( !empty(get_field( 'instagram_accroche' )) ) { ?>
 
 	<div id="instagram" class="home-content clearfix">
