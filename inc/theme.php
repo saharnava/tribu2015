@@ -193,6 +193,26 @@ function get_archives_with_ctp( $where , $r ) {
 }
 endif;
 
+/**
+ * ajouter les ACF à la rest API
+ *
+ */
+
+function slug_register_featured() {
+    register_api_field( 'post',
+        'featured',
+        array(
+            'get_callback'    => 'get_meta_to_response',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_action( 'rest_api_init', 'slug_register_featured' );
+
+function get_meta_to_response( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+}
 
 
 /**
