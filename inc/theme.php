@@ -199,7 +199,7 @@ endif;
  */
 
 function slug_register_featured() {
-    register_api_field( 'post',
+    register_rest_field( 'post',
         'featured',
         array(
             'get_callback'    => 'get_meta_to_response',
