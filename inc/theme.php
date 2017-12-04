@@ -236,27 +236,18 @@ function acf2api_hook_all_post_types(){
  *
  */
 
-add_action( 'rest_api_init', 'add_cat_to_json', 99 );
-function add_cat_to_json() {
-	register_rest_field(
-		'post',
-		'post-categories',
-		array(
-			'gat_callback' => 'get_category_name',
-			'update_callback' => null,
-			'schema' => null
-		)
-	);
-}
-function get_category_name() {
-	global $post;
-	$categories = get_the_category($post->ID);
-	foreach ( $categories as $category ) {
-		$category_name = $category->name;
-		return $category_name;
-	}
+function add_categories_name_to_json($response, $post, $context) {
+    $categories = get_the_category($post->ID);
+    $response->data['cat_names'] = [];
+
+    foreach ($categories as $category) {
+        $response->data['cat_names'][] = $category->name;
+    }
+
+    return $response;
 }
 
+add_filter( 'rest_prepare_post', 'add_categories_name_to_json', 10, 3 );
 
 /**
  * Afficher l'auteur sur un article
