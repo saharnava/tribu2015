@@ -19,8 +19,7 @@ add_action( 'after_switch_theme', 'cp_rewrite_flush' );
 add_filter( 'getarchives_where' , 'get_archives_with_ctp',10 , 2);
 	
 # Allow Disqus to work
-remove_filter( 'comments_template', 'dsq_comments_template' );
-add_filter( 'comments_template', 'dsq_comments_template', 99 ); // You can use any priority higher than '10'   
+//add_filter( 'comments_template', 'dsq_comments_template', 99 ); // You can use any priority higher than '10'   
         
 # Jetpack
 add_action( 'loop_start', 'jptweak_remove_share' );
