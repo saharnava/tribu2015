@@ -249,7 +249,8 @@ function add_cat_to_json() {
 	);
 }
 function get_category_name() {
-	$categories = get_the_category();
+	global $post;
+	$categories = get_the_category($post->ID);
 	foreach ( $categories as $category ) {
 		$category_name = $category->name;
 		return $category_name;
