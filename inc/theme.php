@@ -232,7 +232,7 @@ function acf2api_hook_all_post_types(){
 
 
 /**
- * Ajouter le détail des catégories à la REST API
+ * Ajouter le nom des catégories à la REST API
  *
  */
 
@@ -248,6 +248,26 @@ function add_categories_name_to_json($response, $post, $context) {
 }
 
 add_filter( 'rest_prepare_post', 'add_categories_name_to_json', 10, 3 );
+
+
+/**
+ * Ajouter le nom des tags à la REST API
+ *
+ */
+
+function add_tags_name_to_json($response, $post, $context) {
+    $tags = wp_get_post_tags($post->ID);
+    $response->data['tag_names'] = [];
+
+    foreach ($tags as $tag) {
+        $response->data['tag_names'][] = $tag->name;
+    }
+
+    return $response;
+}
+
+add_filter( 'rest_prepare_post', 'add_tags_name_to_json', 10, 3 );
+
 
 /**
  * Afficher l'auteur sur un article
