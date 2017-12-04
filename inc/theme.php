@@ -198,20 +198,24 @@ endif;
  *
  */
 
-function slug_register_featured() {
-    register_rest_field( 'post',
-        'featured',
-        array(
-            'get_callback'    => 'get_meta_to_response',
-            'update_callback' => null,
-            'schema'          => null,
+add_action( 'rest_api_init', 'create_api_posts_meta_field' );
+ 
+function create_api_posts_meta_field() {
+ 
+    // register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
+    register_rest_field( 'post', 'post-meta-fields', array(
+           'get_callback'    => 'get_post_meta_for_api',
+           'schema'          => null,
         )
     );
 }
-add_action( 'rest_api_init', 'slug_register_featured' );
-
-function get_meta_to_response( $object, $field_name, $request ) {
-    return get_post_meta( $object[ 'id' ], $field_name, true );
+ 
+function get_post_meta_for_api( $object ) {
+    //get the id of the post object array
+    $post_id = $object['id'];
+ 
+    //return the post meta
+    return get_post_meta( $post_id );
 }
 
 
