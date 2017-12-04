@@ -167,7 +167,8 @@ function auteurs_init() {
 		'yarpp_support'	=> true,
 		'supports' => array('title'),
 		'show_in_rest' => true,
-		'rest_base' => 'auteur' 
+		'rest_base' => 'auteur',
+		'rest_controller_class' => 'WP_REST_Posts_Controller'
 	));
 }
 
@@ -192,39 +193,6 @@ function get_archives_with_ctp( $where , $r ) {
 }
 endif;
 
-/**
- * Ajouter les Custom Post à la REST API
- *
- */
- 
-if ( ! function_exists( 'cpt_rest_api' ) ) :
-function cpt_rest_api(){
-	global $wp_post_types;
-	$post_type_name = 'auteur';
-	if( isset( $wp_post_types[ $post_type_name ] ) ) {
-		$wp_post_types[$post_type_name]->show_in_rest = true;
-		$wp_post_types[$post_type_name]->rest_base = $post_type_name;
-	};
-}
-
-/* et les custom fields*/
-// Add custom fields to json response
-function slug_register_featured() {
-    register_api_field( 'post',
-        'featured',
-        array(
-            'get_callback'    => 'get_meta_to_response',
-            'update_callback' => null,
-            'schema'          => null,
-        )
-    );
-}
-add_action( 'rest_api_init', 'slug_register_featured' );
-
-function get_meta_to_response( $object, $field_name, $request ) {
-    return get_post_meta( $object[ 'id' ], $field_name, true );
-}
- 
 
 
 /**
