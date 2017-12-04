@@ -230,6 +230,33 @@ function acf2api_hook_all_post_types(){
   }
 }
 
+
+/**
+ * Ajouter le détail des catégories à la REST API
+ *
+ */
+
+add_action( 'rest_api_init', 'add_cat_to_json', 99 );
+function add_cat_to_json() {
+	register_rest_field(
+		'post',
+		'post-categories',
+		array(
+			'gat_callback' => 'get_category_name',
+			'update_callback' => null,
+			'schema' => null
+		)
+	);
+}
+function get_category_name() {
+	$categories = get_the_category();
+	foreach ( $categories as $category ) {
+		$category_name = $category->name;
+		return $category_name;
+	}
+}
+
+
 /**
  * Afficher l'auteur sur un article
  *
