@@ -198,26 +198,37 @@ endif;
  *
  */
 
-add_action( 'rest_api_init', 'create_api_posts_meta_field' );
- 
-function create_api_posts_meta_field() {
- 
-    // register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
-    register_rest_field( 'post', 'post-meta-fields', array(
-           'get_callback'    => 'get_post_meta_for_api',
-           'schema'          => null,
-        )
-    );
+add_action( 'rest_api_init', 'acf2api_hook_all_post_types', 99 );
+function acf2api_hook_all_post_types(){
+  //Get all the post types
+  global $wp_post_types;
+  $post_types = array_keys( $wp_post_types );
+  //Loop through each one
+  foreach ($post_types as $post_type) {
+    //Add a filter for this post type
+    add_filter( 'rest_prepare_'.$post_type, function($data, $post, $request){
+      //Get the response data
+      $response_data = $data->get_data();
+      //Bail early if there's an error
+      if ( $request['context'] !== 'view' || is_wp_error( $data ) ) {
+          return $data;
+      }
+      //Get all fields
+      $fields = get_fields($post->ID);
+      //If we have fields...
+      if ($fields){
+        //Loop through them...
+        foreach ($fields as $field_name => $value){
+          //Set the meta
+          $response_data[$field_name] = $value;
+        }
+      }
+      //Commit the API result var to the API endpoint
+      $data->set_data( $response_data );
+      return $data;
+    }, 10, 3);
+  }
 }
- 
-function get_post_meta_for_api( $object ) {
-    //get the id of the post object array
-    $post_id = $object['id'];
- 
-    //return the post meta
-    return get_post_meta( $post_id );
-}
-
 
 /**
  * Afficher l'auteur sur un article
