@@ -19,7 +19,8 @@ add_action( 'after_switch_theme', 'cp_rewrite_flush' );
 add_filter( 'getarchives_where' , 'get_archives_with_ctp',10 , 2);
 	
 # Allow Disqus to work
-//add_filter( 'comments_template', 'dsq_comments_template', 99 ); // You can use any priority higher than '10'   
+remove_filter( 'comments_template', 'dsq_comments_template' );
+add_filter( 'comments_template', 'dsq_comments_template', 99 ); // You can use any priority higher than '10'   
         
 # Jetpack
 add_action( 'loop_start', 'jptweak_remove_share' );
@@ -164,7 +165,9 @@ function auteurs_init() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'yarpp_support'	=> true,
-		'supports' => array('title')
+		'supports' => array('title'),
+		'show_in_rest' => true,
+		'rest_base' => 'auteur' 
 	));
 }
 
@@ -188,6 +191,40 @@ function get_archives_with_ctp( $where , $r ) {
     return str_replace( "post_type = 'post'" , "post_type IN ( $post_types )" , $where );
 }
 endif;
+
+/**
+ * Ajouter les Custom Post à la REST API
+ *
+ */
+ 
+if ( ! function_exists( 'cpt_rest_api' ) ) :
+function cpt_rest_api(){
+	global $wp_post_types;
+	$post_type_name = 'auteur';
+	if( isset( $wp_post_types[ $post_type_name ] ) ) {
+		$wp_post_types[$post_type_name]->show_in_rest = true;
+		$wp_post_types[$post_type_name]->rest_base = $post_type_name;
+	};
+}
+
+/* et les custom fields*/
+// Add custom fields to json response
+function slug_register_featured() {
+    register_api_field( 'post',
+        'featured',
+        array(
+            'get_callback'    => 'get_meta_to_response',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_action( 'rest_api_init', 'slug_register_featured' );
+
+function get_meta_to_response( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+}
+ 
 
 
 /**
